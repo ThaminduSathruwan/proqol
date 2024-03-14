@@ -241,7 +241,7 @@
         const formData = new FormData(form);
 
         // Make an AJAX POST request to the server
-        fetch("http://127.0.0.1:5000/predict", {
+        fetch("https://proqol-backend.onrender.com/predict", {
           method: "POST",
           body: formData,
         })
