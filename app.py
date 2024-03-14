@@ -77,6 +77,3 @@ def predictPage():
         error_msg = 'Something went wrong'
         return jsonify({"error": error_msg})
     
-if __name__ == '__main__':
-    app.run(debug=True)
-    
