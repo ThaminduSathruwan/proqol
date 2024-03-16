@@ -160,7 +160,9 @@
               </select>
             </div>
             <div class="my-3">
-              <!-- <div class="loading">Loading</div> -->
+              <div class="text-center loading display-4 d-none">
+                <i class="bi bi-hourglass-split"></i> Loading...
+              </div>
               <h2 class="error-message text-success text-center text-lg fw-bold"></h2>
               <h2 class="prediction-cs text-success text-center text-lg fw-bold"></h2>
               <h2 class="prediction-bo text-danger text-center text-lg fw-bold"></h2>
@@ -237,6 +239,9 @@
       form.addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent the default form submission
 
+        const loadingDiv = document.querySelector(".loading");
+        loadingDiv.classList.remove("d-none"); // show the loading indicator
+
         // Serialize the form data
         const formData = new FormData(form);
 
@@ -272,7 +277,11 @@
           .catch((error) => {
             // Handle any errors here
             console.error(error);
-          });
+          })
+          .finally(() => {
+              // Hide the loading indicator
+              loadingDiv.classList.add("d-none");
+            });
       });
     });
   </script>
